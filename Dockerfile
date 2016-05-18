@@ -10,8 +10,23 @@ ARG EPELREPO
 RUN sh /opt/setbaserepo.sh && \
     sh /opt/setepelrepo.sh && \
     yum -y groupinstall "Development Tools" && \
-    yum install ansible zsh -y && \
+    yum install ansible zsh autojump fasd docker -y && \
     yum clean all
+
+# Install Zsh
+RUN git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh && \
+    cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc && \
+    chsh -s /bin/zsh && \
+    sed "s/^plugins.*/plugins=(git docker encode64 fasd jsontools urltools history autojump wd)/" -i ~/.zshrc
+RUN sh -c "$(curl -sL https://download.getcarina.com/dvm/latest/install.sh)" && \
+    echo "source /root/.dvm/dvm.sh" >> /root/.bashrc && \
+    echo "source /root/.dvm/dvm.sh" >> /root/.zshrc && \
+    source /root/.dvm/dvm.sh && \
+    dvm list && \
+    curl -sL https://download.getcarina.com/carina/latest/$(uname -s)/$(uname -m)/carina -o carina && \
+    chmod u+x carina && \
+    mv carina /usr/local/bin/carina
+
 
 #RUN useradd developer
 
