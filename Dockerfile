@@ -5,6 +5,7 @@ FROM vertigo/java8:latest
 MAINTAINER Rubens Neto <rubens@vertigo.com.br>
 
 RUN yum -y groupinstall "Development Tools" && \
+    yum install ansible zsh -y && \
     yum clean all
 
 #RUN useradd developer

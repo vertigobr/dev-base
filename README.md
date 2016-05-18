@@ -1,4 +1,4 @@
-# dev-base
+dev-base
 ==========
 
 Simple image with development tools.
