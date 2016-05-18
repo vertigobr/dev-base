@@ -24,8 +24,9 @@ RUN sh -c "$(curl -sL https://download.getcarina.com/dvm/latest/install.sh)" && 
     source /root/.dvm/dvm.sh && \
     dvm list && \
     curl -sL https://download.getcarina.com/carina/latest/$(uname -s)/$(uname -m)/carina -o carina && \
-    chmod u+x carina && \
-    mv carina /usr/local/bin/carina
+    mkdir -p ~/bin && \
+    mv carina ~/bin/carina && \
+    chmod u+x ~/bin/carina
 
 
 #RUN useradd developer
