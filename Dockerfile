@@ -4,7 +4,12 @@ FROM vertigo/java8:latest
 
 MAINTAINER Rubens Neto <rubens@vertigo.com.br>
 
-RUN yum -y groupinstall "Development Tools" && \
+ARG BASEREPO
+ARG EPELREPO
+
+RUN sh /opt/setbaserepo.sh && \
+    sh /opt/setepelrepo.sh && \
+    yum -y groupinstall "Development Tools" && \
     yum install ansible zsh -y && \
     yum clean all
 
