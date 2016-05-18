@@ -26,7 +26,9 @@ RUN sh -c "$(curl -sL https://download.getcarina.com/dvm/latest/install.sh)" && 
     curl -sL https://download.getcarina.com/carina/latest/$(uname -s)/$(uname -m)/carina -o carina && \
     mkdir -p ~/bin && \
     mv carina ~/bin/carina && \
-    chmod u+x ~/bin/carina
+    chmod u+x ~/bin/carina && \
+    echo 'export PATH=~/bin:$PATH' >> /root/.bashrc && \
+    echo 'export PATH=~/bin:$PATH' >> /root/.zshrc
 
 
 #RUN useradd developer
