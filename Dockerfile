@@ -19,8 +19,8 @@ RUN git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh && \
     chsh -s /bin/zsh && \
     sed "s/^plugins.*/plugins=(git docker encode64 fasd jsontools urltools history autojump wd)/" -i ~/.zshrc
 RUN sh -c "$(curl -sL https://download.getcarina.com/dvm/latest/install.sh)" && \
-    echo "source /root/.dvm/dvm.sh" >> /root/.bashrc && \
-    echo "source /root/.dvm/dvm.sh" >> /root/.zshrc && \
+    echo "source ~/.dvm/dvm.sh" >> /root/.bashrc && \
+    echo "source ~/.dvm/dvm.sh" >> /root/.zshrc && \
     source /root/.dvm/dvm.sh && \
     dvm list && \
     curl -sL https://download.getcarina.com/carina/latest/$(uname -s)/$(uname -m)/carina -o carina && \
