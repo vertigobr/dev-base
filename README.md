@@ -1,6 +1,7 @@
 # dev-base
-Developer base image (git, ansible)
-====================
+==========
+
+Simple image with development tools.
 
 Imagem simples com ferramentas de desenvolvimento.
 
