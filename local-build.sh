@@ -1,6 +1,6 @@
 #!/bin/sh
-BASEREPO="192.168.1.4/repos"
-#EPELREPO="http://192.168.1.4/repos/epel/7/x86_64"
+BASEREPO="192.168.1.2/repos"
+#EPELREPO="http://192.168.1.2/repos/epel/7/x86_64"
 EPELREPO="default"
 docker build \
     --build-arg="BASEREPO=$BASEREPO" \
